@@ -91,7 +91,7 @@ def save_budget(month: str, category: str, limit: float, path: Path = BUDGET_FIL
 
 def format_summary(expenses: Iterable[Expense], budgets: dict[tuple[str, str], float] | None = None, month: str = "") -> str:
     selected = list(expenses); totals = totals_by_category(selected)
-    lines = [f"Expense report for {month}", "-" * 34]
+    lines = [f"STUDENT BUDGET REPORT — {month}", "=" * 34]
     for category, amount in totals.items():
         limit = (budgets or {}).get((month, category))
         suffix = f" / budget {limit:.2f}" if limit is not None else ""
